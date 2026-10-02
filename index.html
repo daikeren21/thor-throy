@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nearby Attractions – Baguio Transient Thor &amp; Throy</title>
+<style>
+:root{--pg:#d9cfb8;--paper:#f6ecd6;--ink:#17352b;--gold:#b9822f;--gl:#f1c47a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--pg:#101a16}}
+:root[data-theme="dark"]{--pg:#101a16}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+.poster{max-width:520px;margin:10px auto;background:var(--paper);border:4px double var(--gold);border-radius:18px;overflow:hidden}
+.hd{text-align:center;padding:14px 12px 4px;background:linear-gradient(#e9dcc0,var(--paper))}
+.badge{width:150px;margin:0 auto;display:block}
+h1{margin:6px 0 0;font-family:Impact,'Arial Black',sans-serif;font-size:clamp(30px,9.5vw,48px);letter-spacing:1px;line-height:1;font-weight:900}
+.sub{margin:8px 0 0;font-size:10px;letter-spacing:.2em;border-top:1.5px solid var(--ink);padding-top:8px}
+.go{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 12px 4px;padding:14px;background:var(--ink);color:#fff;border-radius:12px;text-decoration:none;font-weight:bold;font-size:15px;box-shadow:0 3px 0 var(--gold)}
+.go small{display:block;font-weight:normal;font-size:11px;color:var(--gl)}
+svg{display:block;width:100%;height:auto}
+.pin{cursor:pointer}
+.tip{font-size:11px;text-align:center;font-weight:bold;padding:6px 12px 10px}
+.bot{padding:0 12px 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box{background:#fffaf0;border:1px solid var(--gold);border-radius:10px;overflow:hidden}
+.box h3{margin:0;background:var(--ink);color:#fff;font-size:11px;padding:8px;letter-spacing:1px}
+.box p{margin:0;padding:10px;font-size:12.5px;line-height:1.45}
+#qr{display:flex;justify-content:center;padding:10px 8px 0}
+.cta{margin:0 12px 12px;background:var(--ink);color:#fff;border-radius:10px;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:bold;font-size:12px}
+.cta a{color:#fff;font-size:22px;text-decoration:none;white-space:nowrap}
+#sh{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:9}
+#sh.on{display:flex}
+#card{background:#fffaf0;color:var(--ink);width:100%;max-width:520px;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));text-align:center}
+#card h2{margin:0 0 2px;font-size:20px}#ct{font-size:14px}
+#cq{display:flex;justify-content:center;margin:8px 0}
+.b{display:block;margin:6px 0;padding:12px;border-radius:10px;font-weight:bold;font-size:15px;text-decoration:none;text-align:center;border:0;width:100%;cursor:pointer;font-family:inherit}
+.b1{background:var(--ink);color:#fff}.b2{background:var(--gl);color:var(--ink)}.b3{background:none;color:#555;font-size:13px}
+</style></head><body>
+<div class="poster">
+<div class="hd">
+<svg class="badge" viewBox="0 0 150 120" font-family="Arial,sans-serif">
+ <path d="M10 112 V50 Q10 6 75 6 Q140 6 140 50 V112 Z" fill="#17352b" stroke="#b9822f" stroke-width="3"/>
+ <path id="arc" d="M24 52 Q24 20 75 20 Q126 20 126 52" fill="none"/>
+ <text font-size="8.5" fill="#f1c47a" letter-spacing="2.5" font-weight="bold"><textPath href="#arc" startOffset="50%" text-anchor="middle">PERFECT HIDEAWAY</textPath></text>
+ <polygon points="42,84 62,46 75,66 90,40 108,84" fill="#d98a3a"/>
+ <polygon points="30,86 40,56 50,86 M100,86 110,58 120,86" fill="#2f6b3f"/>
+ <text x="75" y="95" text-anchor="middle" fill="#fff" font-size="8.5" font-weight="bold" letter-spacing="1.5">BAGUIO TRANSIENT</text>
+ <text x="75" y="110" text-anchor="middle" fill="#f1c47a" font-size="14" font-weight="900">THOR &amp; THROY</text>
+</svg>
+<h1>NEARBY ATTRACTIONS</h1>
+<div class="sub">EXPLORE THE BEST OF BAGUIO, LA TRINIDAD, TUBA AND ITOGON</div>
+</div>
+<a class="go" id="drive" target="_blank" rel="noopener">🚗 <span>Drive to Thor &amp; Throy<small>Tap to start navigation in Google Maps</small></span></a>
+<svg id="s" viewBox="0 0 400 520" font-family="Arial,sans-serif">
+ <path d="M0 0 H400 V100 Q300 114 200 106 Q100 116 0 100Z" fill="#a9d3ee"/>
+ <path d="M0 214 H400 V520 H0Z" fill="#e8a9a3"/>
+ <path d="M0 108 H140 L132 214 H0Z" fill="#c9a98a"/>
+ <path d="M262 108 H400 V214 H270Z" fill="#f1c47a"/>
+ <g id="trees"></g><g id="pins"></g>
+ <g class="gh" style="cursor:pointer" transform="translate(200,238)"><path d="M0 0 C-22 -22 -22 -44 0 -44 C22 -44 22 -22 0 0Z" fill="#17352b" stroke="#fff" stroke-width="2"/><path d="M-9 -26 L0 -35 L9 -26 V-16 H-9Z" fill="#f1c47a"/><rect x="-54" y="4" width="108" height="32" rx="6" fill="#17352b"/><text y="17" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="bold">THOR &amp; THROY</text><text y="29" text-anchor="middle" fill="#f1c47a" font-size="8" font-weight="bold">YOU ARE HERE</text></g>
+ <g font-weight="bold" font-size="12" fill="#fff">
+  <rect x="150" y="8" width="100" height="22" rx="5" fill="#2c63b5"/><text x="200" y="24" text-anchor="middle">LA TRINIDAD</text>
+  <rect x="8" y="112" width="56" height="22" rx="5" fill="#6a4228"/><text x="36" y="128" text-anchor="middle">TUBA</text>
+  <rect x="318" y="112" width="68" height="22" rx="5" fill="#c9701f"/><text x="352" y="128" text-anchor="middle">ITOGON</text>
+  <rect x="150" y="480" width="100" height="26" rx="5" fill="#d9453d"/><text x="200" y="498" text-anchor="middle" font-size="15">BAGUIO</text></g>
+ <g transform="translate(378,16)"><text y="-4" text-anchor="middle" font-size="9" font-weight="bold" fill="#17352b">N</text><polygon points="0,0 -6,16 0,12 6,16" fill="#17352b"/></g>
+</svg>
+<div class="tip">👆 TAP ANY PLACE FOR DIRECTIONS + ITS OWN GOOGLE MAPS QR</div>
+<div class="bot">
+ <div class="box"><h3>🚗 HOW TO GET HERE</h3><p>Scan the QR code to open our exact pin on Google Maps, then tap <b>Directions</b>. We are in <b>Baguio City</b>, near Happy Hollow.</p></div>
+ <div class="box"><h3>📍 SCAN FOR GOOGLE MAPS</h3><div id="qr"></div><p style="text-align:center">Just scan the QR code for Google Maps</p></div>
+</div>
+<div class="cta"><div>FOR INQUIRIES AND BOOKINGS<br>PLEASE CALL OR MESSAGE US</div><a id="ph" href="#">09XX XXX XXXX</a></div>
+</div>
+<div id="sh"><div id="card"><h2 id="cn"></h2><div id="ct"></div><div id="cq"></div>
+<a class="b b1" id="c1" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+<a class="b b2" id="c2" target="_blank" rel="noopener">🧭 Directions from Thor &amp; Throy</a>
+<a class="b b3" id="c3" target="_blank" rel="noopener" style="border:1px solid #bbb">From my current location</a>
+<button class="b b3" id="cx">Close</button></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const MAP='https://maps.app.goo.gl/eGQcaDw5EJRoAm4h9',HOME=encodeURIComponent('Baguio Transient Thor & Throy, Happy Hollow, Baguio City');
+const NS='http://www.w3.org/2000/svg',P=document.getElementById('pins'),W=116,H=30,col=['#2c63b5','#c9701f','#6a4228','#d9453d'];
+// name, x, y, zone, time, search text
+const L=[
+['Strawberry Farm',8,40,0,'30-35 mins','Strawberry Farm, La Trinidad, Benguet'],['Valleywood Adventure Park',268,40,0,'30-35 mins','Valleywood Adventure Park, La Trinidad, Benguet'],['Bell Church (Chinese Garden)',138,40,0,'20-25 mins','Bell Church, Asin Road, Baguio City'],
+['Tam-awan Village',8,140,2,'20-25 mins','Tam-awan Village, Baguio City'],['Igorot Stone Kingdom',8,174,2,'25-30 mins','Igorot Stone Kingdom, Baguio City'],
+['Mt. Camisong Forest Park',270,146,1,'25-30 mins','Mt. Camisong Forest Park, Itogon, Benguet'],
+['Botanical Garden',8,300,3,'3-5 mins','Baguio Botanical Garden'],['Wright Park',138,300,3,'5-7 mins','Wright Park, Baguio City'],['Mines View Park',268,300,3,'5-7 mins','Mines View Park, Baguio City'],
+['Camp John Hay',8,340,3,'5-7 mins','Camp John Hay, Baguio City'],['The Mansion',138,340,3,'5-7 mins','The Mansion, Baguio City'],['Good Shepherd Convent',268,340,3,'5-7 mins','Good Shepherd Convent, Gibraltar Road, Baguio City'],
+['Burnham Park',8,384,3,'10-12 mins','Burnham Park, Baguio City'],['SM Baguio',138,384,3,'10-12 mins','SM City Baguio'],['Session Road',268,384,3,'10-12 mins','Session Road, Baguio City'],
+['Baguio Cathedral',8,428,3,'10-12 mins','Baguio Cathedral, Our Lady of Atonement'],['Lourdes Grotto',138,428,3,'12-15 mins','Lourdes Grotto, Baguio City']];
+function el(n,a,p){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);(p||P).appendChild(e);return e}
+L.forEach(([n,x,y,z,t])=>{
+ const g=el('g',{class:'pin','data-n':n}),two=n.length>15;
+ el('rect',{x:x+10,y,width:W,height:H+(two?8:0),rx:7,fill:'#fffaf0',opacity:.95},g);
+ el('path',{d:`M${x+10} ${y+22} C${x-6} ${y+8} ${x-6} ${y-6} ${x+10} ${y-6} C${x+26} ${y-6} ${x+26} ${y+8} ${x+10} ${y+22}Z`,fill:col[z],stroke:'#fff','stroke-width':1.5},g);
+ el('circle',{cx:x+10,cy:y+3,r:3.5,fill:'#fff'},g);
+ const w=n.split(' ');let a=n,b='';
+ if(two){const m=Math.ceil(w.length/2);a=w.slice(0,m).join(' ');b=w.slice(m).join(' ')}
+ let ty=y+(b?10:13);
+ el('text',{x:x+22,y:ty,'font-size':9.5,'font-weight':'bold',fill:'#17352b'},g).textContent=a;
+ if(b){ty+=11;el('text',{x:x+22,y:ty,'font-size':9.5,'font-weight':'bold',fill:'#17352b'},g).textContent=b}
+ if(t)el('text',{x:x+22,y:ty+12,'font-size':9,fill:'#444'},g).textContent='🚗 '+t});
+document.getElementById('ph').textContent='09XX XXX XXXX';
+const tr=document.getElementById('trees');let sd=7;const rnd=()=>(sd=(sd*9301+49297)%233280)/233280;
+for(let i=0;i<60;i++){const x=rnd()*390+5,y=rnd()*505+6;if(y>96&&y<110)continue;el('polygon',{points:`${x},${y} ${x-5},${y+13} ${x+5},${y+13}`,fill:'#2f6b3f',opacity:.5},tr)}
+document.getElementById('drive').href='https://www.google.com/maps/dir/?api=1&destination='+HOME;
+const sh=document.getElementById('sh'),sc=(u,id)=>{const c=document.getElementById(id);c.innerHTML='';try{new QRCode(c,{text:u,width:130,height:130})}catch(e){}};
+function open_(name,sub,url,dir,dir2){
+ document.getElementById('cn').textContent=name;document.getElementById('ct').textContent=sub;
+ document.getElementById('c1').href=url;document.getElementById('c2').href=dir;document.getElementById('c3').href=dir2;
+ sc(url,'cq');sh.classList.add('on')}
+document.getElementById('s').addEventListener('click',e=>{
+ if(e.target.closest('.gh')){open_('Baguio Transient Thor & Throy','Perfect Hideaway · Happy Hollow, Baguio',MAP,'https://www.google.com/maps/dir/?api=1&destination='+HOME,'https://www.google.com/maps/dir/?api=1&destination='+HOME);return}
+ const g=e.target.closest('.pin');if(!g)return;
+ const p=L.find(x=>x[0]===g.dataset.n),q=encodeURIComponent(p[5]);
+ open_(p[0],(p[4]?p[4]+' from ':'')+'Thor & Throy','https://www.google.com/maps/search/?api=1&query='+q,'https://www.google.com/maps/dir/?api=1&origin='+HOME+'&destination='+q,'https://www.google.com/maps/dir/?api=1&destination='+q)});
+document.getElementById('cx').onclick=()=>sh.classList.remove('on');
+sh.onclick=e=>{if(e.target===sh)sh.classList.remove('on')};
+try{new QRCode(document.getElementById('qr'),{text:MAP,width:130,height:130})}catch(e){document.getElementById('qr').innerHTML='<a href="'+MAP+'">Open map</a>'}
+</script>
+</body></html>
