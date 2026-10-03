@@ -61,7 +61,7 @@ svg{display:block;width:100%;height:auto}
   <ellipse cx="200" cy="335" rx="64" ry="62" fill="#9fcf8f"/>
   <g stroke="#fff" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round" opacity=".9" fill="none"><path d="M200 330 V262"/><path d="M200 335 V406"/><path d="M200 335 H134"/><path d="M200 335 H266"/></g>
   <g id="trees"></g><g id="pins"></g>
-  <g transform="translate(200,335)">
+  <g class="pin" data-n="gh" data-i="🏡" transform="translate(200,335)"><circle r="42" fill="transparent"/>
     <circle class="pulse" r="14" fill="#d9453d"/>
     <path d="M0 8 C-24 -14 -24 -38 0 -38 C24 -38 24 -14 0 8Z" fill="#12342a" stroke="#fff" stroke-width="2.5"/>
     <text y="-14" text-anchor="middle" font-size="18">🏡</text>
@@ -80,7 +80,7 @@ svg{display:block;width:100%;height:auto}
 <div class="tip">👆 TAP ANY PLACE FOR DIRECTIONS + ITS OWN GOOGLE MAPS QR</div>
 <div class="bot">
   <div class="box"><h3>🚗 HOW TO GET HERE</h3><p>Scan the QR code to open our exact pin on Google Maps, then tap Directions.</p></div>
-  <div class="box"><h3>📍 SCAN FOR MAPS</h3><div id="qr"></div><p style="text-align:center">Scan to find us</p></div>
+  <div class="box"><h3 id="mt">📍 SCAN FOR MAPS</h3><div id="qr"></div><p style="text-align:center" id="mp">Scan to find us</p></div>
 </div>
 <div class="cta"><div>FOR INQUIRIES AND BOOKINGS<br>PLEASE CALL OR MESSAGE US</div><big>09XX XXX XXXX</big></div>
 </div>
@@ -120,15 +120,30 @@ let EM=false;const PH=document.querySelector('.cta big');
 document.getElementById('em').onclick=function(){EM=!EM;this.textContent='✏️ Owner edit mode: '+(EM?'ON – tap times and phone':'off')};
 const sh=document.getElementById('sh');
 const q=n=>encodeURIComponent(QS[n]||n+' Baguio Philippines');
-function openSheet(g){const n=g.dataset.n;
- document.getElementById('ci').textContent=g.dataset.i;
- document.getElementById('cn').textContent=n;
- document.getElementById('ct').textContent=g.querySelector('.t').textContent+' from Thor & Throy';
- document.getElementById('c1').href='https://www.google.com/maps/search/?api=1&query='+q(n);
- document.getElementById('c2').href='https://www.google.com/maps/dir/?api=1&origin=16.404576,120.621889&destination='+q(n);
- document.getElementById('c3').href='https://www.google.com/maps/dir/?api=1&destination='+q(n);
- const c=document.getElementById('cq');c.innerHTML='';
- try{new QRCode(c,{text:'https://www.google.com/maps/search/?api=1&query='+q(n),width:130,height:130})}catch(e){}
+const GH='https://maps.app.goo.gl/eGQcaDw5EJRoAm4h9';
+function mainQR(text,title,sub){const c=document.getElementById('qr');c.innerHTML='';
+ try{new QRCode(c,{text:text,width:120,height:120})}catch(e){}
+ document.getElementById('mt').textContent=title;document.getElementById('mp').textContent=sub}
+function openSheet(g){const gh=g.dataset.n==='gh',n=gh?'Thor & Throy':g.dataset.n;
+ const $=id=>document.getElementById(id);
+ $('ci').textContent=g.dataset.i;$('cn').textContent=n;
+ const c1=$('c1'),c2=$('c2'),c3=$('c3'),c=$('cq');c.innerHTML='';
+ if(gh){
+  $('ct').textContent='★ You are here – our exact pin';
+  c1.href=GH;c1.textContent='📍 Open our pin in Google Maps';
+  c2.href='https://www.google.com/maps/dir/?api=1&destination=16.404576,120.621889';c2.textContent='🧭 Directions to Thor & Throy';
+  c3.style.display='none';
+  try{new QRCode(c,{text:GH,width:130,height:130})}catch(e){}
+  mainQR(GH,'📍 SCAN FOR MAPS','Scan to find us');
+ }else{
+  const url='https://www.google.com/maps/search/?api=1&query='+q(g.dataset.n);
+  $('ct').textContent=g.querySelector('.t').textContent+' from Thor & Throy';
+  c1.href=url;c1.textContent='📍 Open in Google Maps';
+  c2.href='https://www.google.com/maps/dir/?api=1&origin=16.404576,120.621889&destination='+q(g.dataset.n);c2.textContent='🧭 Directions from Thor & Throy';
+  c3.href='https://www.google.com/maps/dir/?api=1&destination='+q(g.dataset.n);c3.style.display='';
+  try{new QRCode(c,{text:url,width:130,height:130})}catch(e){}
+  mainQR(url,'📍 SCAN: '+g.dataset.i,n+' • tap Thor & Throy to reset');
+ }
  sh.classList.add('on')}
 document.getElementById('cx').onclick=()=>sh.classList.remove('on');
 sh.onclick=e=>{if(e.target===sh)sh.classList.remove('on')};
