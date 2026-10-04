@@ -53,8 +53,8 @@ svg{display:block;width:100%;height:auto}
     <text y="48" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold" letter-spacing="1.5">BAGUIO TRANSIENT</text>
     <text y="66" text-anchor="middle" fill="#f1c47a" font-size="15" font-weight="bold">THOR &amp; THROY</text>
   </g>
-  <text x="200" y="104" text-anchor="middle" font-size="8.5" fill="#f1c47a" letter-spacing="4">YOUR PERFECT HIDEAWAY</text>
-  <text x="200" y="128" text-anchor="middle" font-size="31" font-weight="900" fill="#fff" font-family="Impact,'Arial Black',sans-serif" letter-spacing="1.5">NEARBY ATTRACTIONS</text>
+  <text x="200" y="97" text-anchor="middle" font-size="8.5" fill="#f1c47a" letter-spacing="4">YOUR PERFECT HIDEAWAY</text>
+  <text x="200" y="130" text-anchor="middle" font-size="31" font-weight="900" fill="#fff" font-family="Impact,'Arial Black',sans-serif" letter-spacing="1.5">NEARBY ATTRACTIONS</text>
   <path d="M0 152 Q100 140 200 152 T400 152 V160 H0Z" fill="#f7efdb"/>
   <text x="200" y="166" text-anchor="middle" font-size="8.5" fill="#12342a" letter-spacing="1.4" font-weight="bold">BAGUIO • LA TRINIDAD • TUBA • ITOGON</text>
   <g filter="url(#sd)"><rect x="6" y="172" width="388" height="92" rx="28" fill="url(#a)"/><rect x="6" y="274" width="128" height="124" rx="24" fill="url(#b)"/><rect x="266" y="274" width="128" height="124" rx="24" fill="url(#c)"/><rect x="6" y="406" width="388" height="202" rx="28" fill="url(#d)"/></g>
@@ -111,6 +111,7 @@ L.forEach(([n,ic,x,y,z])=>{
   el('text',{x:x+20,y:y+H/2+6,'text-anchor':'middle','font-size':17},g).textContent=ic;
   let a=n,b='';const w=n.split(' ');
   if(n.length>16){const m=Math.ceil(w.length/2);a=w.slice(0,m).join(' ');b=w.slice(m).join(' ')}
+  if(n==='Valleywood Adventure Park'){a='Valleywood';b='Adventure Park'}
   const o={'font-size':9.5,'font-weight':'bold',fill:'#12342a'};
   el('text',{...o,x:x+40,y:y+(b?13:17)},g).textContent=a;
   if(b)el('text',{...o,x:x+40,y:y+23},g).textContent=b;
